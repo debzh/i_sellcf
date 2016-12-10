@@ -10,17 +10,26 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       # Show successful flash message and redirect to profiles list
-      redirect_to root_path
+      flash[:notice] = "You have created a new profile"
+      redirect_to profile_path(@profile)
     else
       # Render the new template
       render :new
     end
   end
 
-private 
+  def index
+    @profile = Profile.all
+  end
+
+  def show
+    @profile = current_user.profile
+  end
+
+private
 
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :biography)
+      params.require(:profile).permit(:first_name, :last_name, :biography, :picture)
     end
 
 
