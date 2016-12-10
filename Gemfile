@@ -49,3 +49,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise"
+
+# Add simple Form which overrides rails forms
+gem 'simple_form'

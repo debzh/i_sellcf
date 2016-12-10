@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-root 'home#index'
+  resources :profiles
+
+  devise_for :users, controllers: { registrations: "registrations" }
+
+  root 'home#index'
   get 'home/index'
 
 get "/about", to: "home#about"
