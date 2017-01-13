@@ -11,9 +11,9 @@ has_one :profile
 after_create :assign_role
 
   def assign_role
-    if user_type == 'buyer'
+    if user_type == 'Buyer'
       add_role :buyer
-    elsif user_type == 'seller'
+    elsif user_type == 'Seller'
       add_role :seller
     elsif user_type == 'admin'
       add_role :admin
